@@ -20,12 +20,12 @@ mongoose.connect(dbURL, (err) => {
   }
 });
 
-var redisURL = {
+let redisURL = {
   hostname: 'localhost',
   port: 6379,
 };
 
-var redisPASS;
+let redisPASS;
 
 if (process.env.REDISCLOUD_URL) {
   redisURL = url.parse(process.env.REDISCLOUD_URL);
@@ -65,8 +65,8 @@ app.use(cookieParser());
 
 app.use(csrf());
 app.use((err, req, res, next) => {
-  if(err.code !== 'EBADCSRFTOKEN') return next(err);
-  
+  if (err.code !== 'EBADCSRFTOKEN') return next(err);
+
   return false;
 });
 

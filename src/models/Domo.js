@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const _ = require('underscore');
 
-var DomoModel = {};
+let DomoModel = {};
 
 const convertId = mongoose.Types.ObjectId;
 const setName = name => _.escape(name).trim();
@@ -20,7 +20,7 @@ const DomoSchema = new mongoose.Schema({
     min: 0,
     required: true,
   },
-  
+
   weight: {
     type: Number,
     min: 0,

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-var AccountModel = {};
+let AccountModel = {};
 const iterations = 10000;
 const saltLength = 64;
 const keyLength = 64;
@@ -24,22 +24,22 @@ const AccountSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  
+
   name: {
     type: String,
     required: true,
   },
-  
+
   location: {
     type: String,
     required: true,
   },
-  
+
   age: {
     type: Number,
     required: true,
   },
-  
+
   createdData: {
     type: Date,
     default: Date.now,
@@ -99,7 +99,7 @@ AccountSchema.statics.authenticate = (username, password, callback) =>
 
       return callback();
     });
-});
+  });
 
 
 AccountModel = mongoose.model('Account', AccountSchema);

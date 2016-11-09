@@ -3,11 +3,11 @@ const models = require('../models');
 const Account = models.Account;
 
 const loginPage = (req, res) => {
-  res.render('login', {csrfToken: req.csrfToken()});
+  res.render('login', { csrfToken: req.csrfToken() });
 };
 
 const signupPage = (req, res) => {
-  res.render('signup', {csrfToken: req.csrfToken()});
+  res.render('signup', { csrfToken: req.csrfToken() });
 };
 
 const profilePage = (req, res) => {
@@ -19,7 +19,7 @@ const profilePage = (req, res) => {
     console.dir(docs);
     return res.render('profile', { csrfToken: req.csrfToken(), userInfo: docs });
   });
-}
+};
 
 const logout = (req, res) => {
   req.session.destroy();
@@ -52,7 +52,8 @@ const signup = (request, response) => {
   const req = request;
   const res = response;
 
-  if (!req.body.username || !req.body.pass || !req.body.pass2 || !req.body.name || !req.body.location || !req.body.age) {
+  if (!req.body.username || !req.body.pass || !req.body.pass2 ||
+      !req.body.name || !req.body.location || !req.body.age) {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
