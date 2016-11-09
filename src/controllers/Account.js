@@ -52,8 +52,7 @@ const signup = (request, response) => {
   const req = request;
   const res = response;
 
-  if (!req.body.username || !req.body.pass || !req.body.pass2 ||
-      !req.body.name || !req.body.location || !req.body.age) {
+  if (!req.body.username || !req.body.pass || !req.body.pass2 || !req.body.name || !req.body.location || !req.body.age) {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
